@@ -1,6 +1,6 @@
 {
   "name": "react-provider",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "react component provider",
   "author": {
     "name": "morisuke",
@@ -19,26 +19,12 @@
     "react",
     "mount"
   ],
-  "_id": "react-provider@1.0.1",
+  "readme": "# React-provider\n\nHTML上の要素をReact.jsのコンポーネントに置換します。  \nBrowserify + Babelifyの環境で動作確認済み。  \nloose-modeを用いることでIE8でも動作可能です。\n\n## 主要な機能\n1. Component provider\n2. this.props.children\n3. data-props\n\n### 1.Component provider\n\n```js\nvar elementMap = {\n  selector:  <Component />,\n  selector2: <Component />...\n}\n\nprovider(elementMap, wrapTagName = null);\n```\n\nselector(string)で指定した要素にコンポーネントが展開されます。  \n指定されていたattributesはpropsに引き継がれます。  \nIE8は未定義タグに対応していないため、wrapTagNameにdivやspanを渡して対応して下さい。  \n\n#### 使用例\n\n##### component.jsx\n```js\nimport React from 'react';\nclass Component extends React.Component {\n  render() {\n    return (\n        <div className={this.props.className}>\n            {this.props.children}\n        </div>\n        );\n  }\n}\n```\n\n##### app.js\n```js\nvar Component = require('./component.jsx');\nvar provider   = require('./react-provider');\n\nprovider({\n  'component': <Component />,\n  '[v-component=component]': <Component />\n});\n```\n\n##### index.html (実行前)\n```html\n<body>\n\n  <component class=\"wrapper\">\n    wrappertext\n    <div v-component=\"component\" class=\"inner\">innertext</div>\n  </component>\n  \n  <script src=\"./app.js\" type=\"text/javascript\">\n</body>\n```\n\n##### index.html (実行後)\n```html\n<body>\n\n    <component>\n        <div class=\"wrapper\" data-reactid=\".0\">\n            wrappertext\n            <component>\n                <div class=\"inner\" data-reactid=\".1\">innertext</div>\n            </component>\n        </div>\n    </component>\n\n    <script src=\"./app.js\" type=\"text/javascript\">\n</body>\n```\n\n### 2.  this.props.children\n変換対象要素の子要素がReactElementとして格納されます。  \njsx内に```{this.props.children}```と記述することで展開できます。\n\n### 3. data-props属性\n__data-props__を指定した要素はthis.props内に文字列として格納されます。  \n__data-props-html__を指定した要素はthis.props.html内にReactElementとして格納されます。  \n\n##### component.jsx\n```js\nimport React from 'react';\nclass Component extends React.Component {\n  render() {\n    return (\n        <section>\n            {this.props.html.reactelement}\n            {this.props.textelement}\n        </section>\n        );\n  }\n}\n```\n\n##### index.html (実行前)\n```html\n<body>\n\n    <component class=\"wrapper\">\n        \n        <div data-props=\"textelement\">\n            textnodeが格納されます\n        </div>\n        \n         <div data-props-html=\"reactelement\">\n            <span class=\"style\">htmlが格納されます</span>\n        </div>\n        \n    </component>\n  \n  <script src=\"./app.js\" type=\"text/javascript\">\n</body>\n```\n\n##### index.html (実行後)\n```html\n<body>\n\n    <component>\n        <span class=\"style\">htmlが格納されます</span>\n        textnodeが格納されます\n    </component>\n\n    <script src=\"./app.js\" type=\"text/javascript\">\n</body>\n```\n",
+  "readmeFilename": "README.md",
+  "_id": "react-provider@0.0.2",
   "dist": {
-    "shasum": "a00d15df8f34a344e90427d1822130346411de91",
-    "tarball": "http://registry.npmjs.org/react-provider/-/react-provider-1.0.1.tgz"
+    "shasum": "197b93e04da88588ca9b7de381cda0dea62257c9"
   },
-  "_from": "react-provider@1.0.1",
-  "_resolved": "https://registry.npmjs.org/react-provider/-/react-provider-1.0.1.tgz",
-  "gitHead": "a69ddf0f02c7a79b2d1715a89aa8034e2b0e422f",
-  "_shasum": "a00d15df8f34a344e90427d1822130346411de91",
-  "_npmVersion": "2.10.1",
-  "_nodeVersion": "0.10.33",
-  "_npmUser": {
-    "name": "morisuke",
-    "email": "writers-high@outlook.com"
-  },
-  "maintainers": [
-    {
-      "name": "morisuke",
-      "email": "writers-high@outlook.com"
-    }
-  ],
-  "directories": {}
+  "_from": "react-provider@0.0.2",
+  "_resolved": "https://registry.npmjs.org/react-provider/-/react-provider-0.0.2.tgz"
 }
