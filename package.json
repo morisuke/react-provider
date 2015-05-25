@@ -1,0 +1,44 @@
+{
+  "name": "react-provider",
+  "version": "1.0.1",
+  "description": "react component provider",
+  "author": {
+    "name": "morisuke",
+    "url": "writers-high@outlook.com"
+  },
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "lodash": "~3.8.0",
+    "react-tools": "^0.13.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "mount"
+  ],
+  "_id": "react-provider@1.0.1",
+  "dist": {
+    "shasum": "a00d15df8f34a344e90427d1822130346411de91",
+    "tarball": "http://registry.npmjs.org/react-provider/-/react-provider-1.0.1.tgz"
+  },
+  "_from": "react-provider@1.0.1",
+  "_resolved": "https://registry.npmjs.org/react-provider/-/react-provider-1.0.1.tgz",
+  "gitHead": "a69ddf0f02c7a79b2d1715a89aa8034e2b0e422f",
+  "_shasum": "a00d15df8f34a344e90427d1822130346411de91",
+  "_npmVersion": "2.10.1",
+  "_nodeVersion": "0.10.33",
+  "_npmUser": {
+    "name": "morisuke",
+    "email": "writers-high@outlook.com"
+  },
+  "maintainers": [
+    {
+      "name": "morisuke",
+      "email": "writers-high@outlook.com"
+    }
+  ],
+  "directories": {}
+}
